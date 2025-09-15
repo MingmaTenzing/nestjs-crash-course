@@ -1,7 +1,7 @@
 import { Controller, Get, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { get } from 'http';
-
+import { User, Bookmark } from 'generated/prisma';
 @Controller('auth')
 export class authController {
   constructor(private authService: AuthService) {}
