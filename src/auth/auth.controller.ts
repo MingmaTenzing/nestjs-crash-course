@@ -1,4 +1,4 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { get } from 'http';
 import { User, Bookmark } from 'generated/prisma';
@@ -6,12 +6,12 @@ import { User, Bookmark } from 'generated/prisma';
 export class authController {
   constructor(private authService: AuthService) {}
 
-  @Post('signup')
+  @Get('signup')
   signup() {
     return this.authService.signup();
   }
 
-  @Post('signin')
+  @Get('signin')
   signin() {
     return this.authService.login();
   }
