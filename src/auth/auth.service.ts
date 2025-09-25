@@ -10,7 +10,6 @@ export class AuthService {
 
   async signup(dto: authDto) {
     const hash = await argon2.hash(dto.password);
-
     try {
       const user = await this.prisma.user.create({
         data: {
@@ -18,6 +17,7 @@ export class AuthService {
           hash: hash,
         },
       });
+      console.log(user);
       const { hash: _, ...userWithoutHash } = user;
       return userWithoutHash;
     } catch (error) {
