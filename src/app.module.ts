@@ -7,9 +7,17 @@ import { BookmarkController } from './bookmark/bookmark.controller';
 import { BookmarkService } from './bookmark/bookmark.service';
 
 import { BookmarkModule } from './bookmark/bookmark.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [authModule, PrismaModule, BookmarkModule],
+  imports: [
+    authModule,
+    PrismaModule,
+    BookmarkModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+  ],
   controllers: [AppController, BookmarkController],
   providers: [AppService, BookmarkService],
 })
