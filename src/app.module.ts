@@ -8,6 +8,7 @@ import { BookmarkService } from './bookmark/bookmark.service';
 
 import { BookmarkModule } from './bookmark/bookmark.module';
 import { ConfigModule } from '@nestjs/config';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { ConfigModule } from '@nestjs/config';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    UserModule,
   ],
   controllers: [AppController, BookmarkController],
   providers: [AppService, BookmarkService],
